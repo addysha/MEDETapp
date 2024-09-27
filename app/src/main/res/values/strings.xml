@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">medetApp</string>
+    <string name="app_name">Medet App</string>
+    <string name="title_activity_logged_out">LoggedOutActivity</string>
+    <string name="medet">Medet</string>
+    <string name="login_button">Log In</string>
+    <string name="signup_button">Sign Up</string>
+    <string name="forgot_password">Forgot Password</string>
 </resources>

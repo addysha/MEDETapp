@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<style name="logo_corner">
+		<item name="cornerSize">116dp</item>
+	</style>
+</resources>
