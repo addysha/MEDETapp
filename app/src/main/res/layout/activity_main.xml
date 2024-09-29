@@ -1,19 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/white"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/main_page_title"
+            android:gravity="center"
+            android:textSize="30sp"
+            />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:background="@drawable/clock_back_ground"
+            android:layout_marginVertical="30dp"
+            android:layout_marginHorizontal="20dp"
+            android:gravity="center"
+            android:text="@string/time_till_dose"
+            android:textSize="70sp"
+            />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/white_background_with_stroke"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:text="@string/device_settings" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/white_background_with_stroke"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:text="@string/dosage_plan" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/white_background_with_stroke"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:text="@string/profile_settings" />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/white_background_with_stroke"
+                android:layout_margin="10dp"
+                android:gravity="center_horizontal"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:text="@string/user_settings" />
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

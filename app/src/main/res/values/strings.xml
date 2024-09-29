@@ -7,4 +7,11 @@
     <string name="forgot_password">Forgot Password</string>
     <string name="password">Password:</string>
     <string name="email">Email:</string>
+    <string name="dosage_plan">Dosage Plan</string>
+    <string name="device_settings">Device Settings</string>
+    <string name="profile_settings">Profile Settings</string>
+    <string name="user_settings">User Settings</string>
+    <string name="main_page_title">Time Until Next Dose</string>
+    <string name="time_till_dose">8:14:54</string>
+
 </resources>
