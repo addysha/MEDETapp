@@ -1,0 +1,144 @@
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"utf-8\"?>\r\n<LinearLayout\r\n    xmlns:android=\"http://schemas.android.com/apk/res/android\"\r\n    android:background=\"@color/white\"\r\n    android:orientation=\"vertical\"\r\n    android:layout_width=\"match_parent\"\r\n    android:layout_height=\"match_parent\">\r\n\r\n        <TextView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_weight=\"1\"\r\n            android:text=\"@string/main_page_title\"\r\n\r\n            android:gravity=\"bottom|center_horizontal\"\r\n            android:textSize=\"30sp\"\r\n            />\r\n\r\n        <TextView\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_weight=\"3\"\r\n            android:background=\"@drawable/clock_back_ground\"\r\n            android:layout_marginVertical=\"30dp\"\r\n            android:layout_marginHorizontal=\"20dp\"\r\n            android:gravity=\"center\"\r\n            android:text=\"@string/time_till_dose\"\r\n            android:textSize=\"70sp\"\r\n            />\r\n\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_weight=\"2\"\r\n            android:orientation=\"horizontal\"\r\n            android:background=\"@color/light_grey\">\r\n\r\n            <TextView\r\n                android:layout_width=\"0dp\"\r\n                android:layout_height=\"match_parent\"\r\n                android:layout_weight=\"1\"\r\n                android:background=\"@drawable/white_background_with_stroke\"\r\n                android:layout_margin=\"10dp\"\r\n                android:gravity=\"center_horizontal\"\r\n                android:textColor=\"@color/black\"\r\n                android:textSize=\"20sp\"\r\n                android:text=\"@string/device_settings\" />\r\n            <TextView\r\n                android:layout_width=\"0dp\"\r\n                android:layout_height=\"match_parent\"\r\n                android:layout_weight=\"1\"\r\n                android:background=\"@drawable/white_background_with_stroke\"\r\n                android:layout_margin=\"10dp\"\r\n                android:gravity=\"center_horizontal\"\r\n                android:textColor=\"@color/black\"\r\n                android:textSize=\"20sp\"\r\n                android:text=\"@string/dosage_plan\" />\r\n\r\n        </LinearLayout>\r\n\r\n        <LinearLayout\r\n            android:layout_width=\"match_parent\"\r\n            android:layout_height=\"0dp\"\r\n            android:layout_weight=\"2\"\r\n            android:orientation=\"horizontal\"\r\n            android:background=\"@color/light_grey\">>\r\n            <TextView\r\n                android:layout_width=\"0dp\"\r\n                android:layout_height=\"match_parent\"\r\n                android:layout_weight=\"1\"\r\n                android:background=\"@drawable/white_background_with_stroke\"\r\n                android:layout_margin=\"10dp\"\r\n                android:gravity=\"center_horizontal\"\r\n                android:textColor=\"@color/black\"\r\n                android:textSize=\"20sp\"\r\n                android:text=\"@string/profile_settings\" />\r\n            <TextView\r\n                android:layout_width=\"0dp\"\r\n                android:layout_height=\"match_parent\"\r\n                android:layout_weight=\"1\"\r\n                android:background=\"@drawable/white_background_with_stroke\"\r\n                android:layout_margin=\"10dp\"\r\n                android:gravity=\"center_horizontal\"\r\n                android:textColor=\"@color/black\"\r\n                android:textSize=\"20sp\"\r\n                android:text=\"@string/user_settings\" />\r\n\r\n\r\n\r\n        </LinearLayout>\r\n</LinearLayout>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/res/layout/activity_main.xml b/app/src/main/res/layout/activity_main.xml
+--- a/app/src/main/res/layout/activity_main.xml	(revision e1fb99f9f32ec08d23e362645d8dc442249654eb)
++++ b/app/src/main/res/layout/activity_main.xml	(date 1727609402110)
+@@ -64,7 +64,7 @@
+             android:layout_height="0dp"
+             android:layout_weight="2"
+             android:orientation="horizontal"
+-            android:background="@color/light_grey">>
++            android:background="@color/light_grey">
+             <TextView
+                 android:layout_width="0dp"
+                 android:layout_height="match_parent"
+Index: app/build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>plugins {\r\n    alias(libs.plugins.android.application)\r\n}\r\n\r\nandroid {\r\n    namespace = \"com.example.medetapp\"\r\n    compileSdk = 34\r\n\r\n    defaultConfig {\r\n        applicationId = \"com.example.medetapp\"\r\n        minSdk = 24\r\n        targetSdk = 34\r\n        versionCode = 1\r\n        versionName = \"1.0\"\r\n\r\n        testInstrumentationRunner = \"androidx.test.runner.AndroidJUnitRunner\"\r\n    }\r\n\r\n    buildTypes {\r\n        release {\r\n            isMinifyEnabled = false\r\n            proguardFiles(\r\n                getDefaultProguardFile(\"proguard-android-optimize.txt\"),\r\n                \"proguard-rules.pro\"\r\n            )\r\n        }\r\n    }\r\n    compileOptions {\r\n        sourceCompatibility = JavaVersion.VERSION_1_8\r\n        targetCompatibility = JavaVersion.VERSION_1_8\r\n    }\r\n}\r\n\r\ndependencies {\r\n\r\n    implementation(libs.appcompat)\r\n    implementation(libs.material)\r\n    implementation(libs.activity)\r\n    implementation(libs.constraintlayout)\r\n    testImplementation(libs.junit)\r\n    androidTestImplementation(libs.ext.junit)\r\n    androidTestImplementation(libs.espresso.core)\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/build.gradle.kts b/app/build.gradle.kts
+--- a/app/build.gradle.kts	(revision e1fb99f9f32ec08d23e362645d8dc442249654eb)
++++ b/app/build.gradle.kts	(date 1727416276836)
+@@ -1,5 +1,6 @@
+ plugins {
+     alias(libs.plugins.android.application)
++    alias(libs.plugins.kotlin.android)
+ }
+ 
+ android {
+@@ -14,6 +15,9 @@
+         versionName = "1.0"
+ 
+         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
++        vectorDrawables {
++            useSupportLibrary = true
++        }
+     }
+ 
+     buildTypes {
+@@ -29,6 +33,20 @@
+         sourceCompatibility = JavaVersion.VERSION_1_8
+         targetCompatibility = JavaVersion.VERSION_1_8
+     }
++    kotlinOptions {
++        jvmTarget = "1.8"
++    }
++    buildFeatures {
++        compose = true
++    }
++    composeOptions {
++        kotlinCompilerExtensionVersion = "1.5.1"
++    }
++    packaging {
++        resources {
++            excludes += "/META-INF/{AL2.0,LGPL2.1}"
++        }
++    }
+ }
+ 
+ dependencies {
+@@ -37,7 +55,18 @@
+     implementation(libs.material)
+     implementation(libs.activity)
+     implementation(libs.constraintlayout)
++    implementation(libs.lifecycle.runtime.ktx)
++    implementation(libs.activity.compose)
++    implementation(platform(libs.compose.bom))
++    implementation(libs.ui)
++    implementation(libs.ui.graphics)
++    implementation(libs.ui.tooling.preview)
++    implementation(libs.material3)
+     testImplementation(libs.junit)
+     androidTestImplementation(libs.ext.junit)
+     androidTestImplementation(libs.espresso.core)
++    androidTestImplementation(platform(libs.compose.bom))
++    androidTestImplementation(libs.ui.test.junit4)
++    debugImplementation(libs.ui.tooling)
++    debugImplementation(libs.ui.test.manifest)
+ }
+\ No newline at end of file
+Index: build.gradle.kts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>// Top-level build file where you can add configuration options common to all sub-projects/modules.\r\nplugins {\r\n    alias(libs.plugins.android.application) apply false\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/build.gradle.kts b/build.gradle.kts
+--- a/build.gradle.kts	(revision e1fb99f9f32ec08d23e362645d8dc442249654eb)
++++ b/build.gradle.kts	(date 1727436377956)
+@@ -1,4 +1,5 @@
+ // Top-level build file where you can add configuration options common to all sub-projects/modules.
+ plugins {
+     alias(libs.plugins.android.application) apply false
++    
+ }
+\ No newline at end of file
+Index: gradle/libs.versions.toml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>[versions]\r\nagp = \"8.6.0\"\r\njunit = \"4.13.2\"\r\njunitVersion = \"1.2.1\"\r\nespressoCore = \"3.6.1\"\r\nappcompat = \"1.6.1\"\r\nmaterial = \"1.10.0\"\r\nactivity = \"1.9.2\"\r\nconstraintlayout = \"2.1.4\"\r\n\r\n[libraries]\r\njunit = { group = \"junit\", name = \"junit\", version.ref = \"junit\" }\r\next-junit = { group = \"androidx.test.ext\", name = \"junit\", version.ref = \"junitVersion\" }\r\nespresso-core = { group = \"androidx.test.espresso\", name = \"espresso-core\", version.ref = \"espressoCore\" }\r\nappcompat = { group = \"androidx.appcompat\", name = \"appcompat\", version.ref = \"appcompat\" }\r\nmaterial = { group = \"com.google.android.material\", name = \"material\", version.ref = \"material\" }\r\nactivity = { group = \"androidx.activity\", name = \"activity\", version.ref = \"activity\" }\r\nconstraintlayout = { group = \"androidx.constraintlayout\", name = \"constraintlayout\", version.ref = \"constraintlayout\" }\r\n\r\n[plugins]\r\nandroid-application = { id = \"com.android.application\", version.ref = \"agp\" }\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/gradle/libs.versions.toml b/gradle/libs.versions.toml
+--- a/gradle/libs.versions.toml	(revision e1fb99f9f32ec08d23e362645d8dc442249654eb)
++++ b/gradle/libs.versions.toml	(date 1727416276540)
+@@ -7,6 +7,10 @@
+ material = "1.10.0"
+ activity = "1.9.2"
+ constraintlayout = "2.1.4"
++kotlin = "1.9.0"
++lifecycleRuntimeKtx = "2.8.5"
++activityCompose = "1.9.2"
++composeBom = "2024.04.01"
+ 
+ [libraries]
+ junit = { group = "junit", name = "junit", version.ref = "junit" }
+@@ -16,7 +20,18 @@
+ material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+ activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+ constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
++lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
++activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
++compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "composeBom" }
++ui = { group = "androidx.compose.ui", name = "ui" }
++ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
++ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
++ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
++ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
++ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
++material3 = { group = "androidx.compose.material3", name = "material3" }
+ 
+ [plugins]
+ android-application = { id = "com.android.application", version.ref = "agp" }
++kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
+ 
