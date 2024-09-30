@@ -13,25 +13,26 @@
         tools:layout_editor_absoluteY="1dp">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/sound_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
             android:layout_weight="1"
-            android:text="Alarm sound"
+            android:textSize="20sp"
+            android:text="@string/alarm_sound"
             android:backgroundTint="#00DB4A"
             />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="50dp"
-            android:text="Alarm Volume"
-            android:paddingLeft="50dp"/>
+            android:textSize="30sp"
+            android:text="@string/alarm_volume"
+            android:gravity="center"/>
 
         <com.google.android.material.slider.Slider
-            android:id="@+id/slider"
+            android:id="@+id/volume_slider"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:stepSize="1.0"
@@ -41,33 +42,37 @@
             tools:layout_editor_absoluteY="0dp" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/lights_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
             android:layout_weight="1"
-            android:text="Alert lights"
-            android:backgroundTint="#DBCA1C16"/>
+            android:textSize="20sp"
+            android:text="@string/alarm_lights"
+
+            android:backgroundTint="@color/red_button"/>
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/alerts_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
             android:layout_weight="1"
-            android:text="Send alert"
+            android:textSize="20sp"
+            android:text="@string/send_alerts"
             android:backgroundTint="#00DB4A"/>
 
         <Button
-            android:id="@+id/Savebutton4"
+            android:id="@+id/save_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="100dp"
             android:layout_marginRight="100dp"
             android:layout_weight="1"
-            android:text="Save"
-            android:backgroundTint="#D9D9D9"/>
+            android:textSize="20sp"
+            android:text="@string/save"
+            android:backgroundTint="@color/light_grey"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
