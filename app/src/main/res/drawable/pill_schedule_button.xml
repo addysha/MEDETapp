@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape
+            >
+            <solid
+                android:color="@color/white"
+                />
+            <stroke
+                android:color="@color/black"
+                android:width="2dp"
+                />
+        </shape>
+    </item>
+    <item>
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/pill_icon"
+            />
+    </item>
+</layer-list>

@@ -40,7 +40,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/white_background_with_stroke"
+                android:background="@drawable/settings_button"
                 android:layout_margin="10dp"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
@@ -50,7 +50,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/white_background_with_stroke"
+                android:background="@drawable/pill_schedule_button"
                 android:layout_margin="10dp"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
@@ -69,7 +69,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/white_background_with_stroke"
+                android:background="@drawable/profile_button"
                 android:layout_margin="10dp"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
@@ -79,14 +79,12 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/white_background_with_stroke"
+                android:background="@drawable/users_button"
                 android:layout_margin="10dp"
                 android:gravity="center_horizontal"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:text="@string/user_settings" />
-
-
 
         </LinearLayout>
 </LinearLayout>
