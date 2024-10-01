@@ -18,5 +18,10 @@
     <string name="send_alerts">Send Alerts</string>
     <string name="alarm_volume">Alarm Volume</string>
     <string name="save">Save</string>
+    <string name="register">Register</string>
+    <string name="pin">Pin:</string>
+    <string name="phone_no">Phone Number:</string>
+    <string name="last_name">Last Name:</string>
+    <string name="first_name">First Name:</string>
 
 </resources>
