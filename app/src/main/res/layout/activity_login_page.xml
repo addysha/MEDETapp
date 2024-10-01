@@ -27,16 +27,16 @@
                 android:layout_width="wrap_content"
                 android:text="@string/medet"
                 />
+
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/login_logo"
-                app:shapeAppearanceOverlay="@style/logo_corner"
-                android:layout_width="match_parent"
-                android:layout_height="190dp"
-                android:layout_marginBottom="44dp"
+                android:layout_width="225dp"
+                android:layout_height="178dp"
                 android:layout_marginHorizontal="89dp"
-                android:src="@drawable/logo"
+                android:layout_marginBottom="44dp"
                 android:scaleType="fitXY"
-                />
+                android:src="@drawable/logo"
+                app:shapeAppearanceOverlay="@style/logo_corner" />
             <LinearLayout
                 android:layout_width="340dp"
                 android:layout_height="362dp"
