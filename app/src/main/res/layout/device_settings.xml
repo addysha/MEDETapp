@@ -1,78 +1,131 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
+    <!-- Back Button (Arrow Icon) -->
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="Back"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Alarm Sound Layout -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
 
-        <Button
-            android:id="@+id/sound_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:text="@string/alarm_sound"
-            android:backgroundTint="#00DB4A"
-            />
-
+        <!-- Alarm Sound Label -->
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/alarm_sound_label"
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="@string/alarm_volume"
-            android:gravity="center"/>
+            android:text="Alarm Sound"
+            android:textSize="35sp" />
 
-        <com.google.android.material.slider.Slider
-            android:id="@+id/volume_slider"
+        <!-- Alarm Sound Switch -->
+        <Switch
+            android:id="@+id/alarm_sound_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:scaleX="1.5"
+            android:scaleY="1.5"/>
+    </LinearLayout>
+
+    <!-- Alarm Volume Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="16dp">
+
+        <!-- Alarm Volume Label -->
+        <TextView
+            android:id="@+id/alarm_volume_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alarm Volume"
+            android:textSize="35sp" />
+
+        <!-- Alarm Volume Slider -->
+        <com.google.android.material.slider.Slider
+            android:id="@+id/alarm_volume_slider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:stepSize="1.0"
             android:valueFrom="0.0"
-            android:valueTo="100.0"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="0dp" />
-
-        <Button
-            android:id="@+id/lights_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:text="@string/alarm_lights"
-
-            android:backgroundTint="@color/red_button"/>
-
-        <Button
-            android:id="@+id/alerts_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:text="@string/send_alerts"
-            android:backgroundTint="#00DB4A"/>
-
-        <Button
-            android:id="@+id/save_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
-            android:layout_weight="1"
-            android:textSize="20sp"
-            android:text="@string/save"
-            android:backgroundTint="@color/light_grey"/>
+            android:valueTo="100.0" />
     </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!-- Alert Lights Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <!-- Alert Lights Label -->
+        <TextView
+            android:id="@+id/alert_lights_label"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Alert Lights"
+            android:textSize="35sp" />
+
+        <!-- Alert Lights Switch -->
+        <Switch
+            android:id="@+id/alert_lights_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.5"
+            android:scaleY="1.5"/>
+    </LinearLayout>
+
+    <!-- Send Alerts Layout -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp">
+
+        <!-- Send Alerts Label -->
+        <TextView
+            android:id="@+id/send_alerts_label"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Send Alerts"
+            android:textSize="35sp" />
+
+        <!-- Send Alerts Switch -->
+        <Switch
+            android:id="@+id/send_alerts_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.5"
+            android:scaleY="1.5"/>
+    </LinearLayout>
+
+    <!-- Save Button -->
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_gravity="center"
+        android:layout_marginTop="200dp"
+        android:backgroundTint="@color/black"
+        android:textColor="#ffff"
+        android:scaleX="1.5"
+        android:scaleY="1.5"/>
+
+</LinearLayout>

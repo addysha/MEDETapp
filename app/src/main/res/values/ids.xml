@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="send_alerts_switch" type="id">send_alert_radio</item>
+</resources>
