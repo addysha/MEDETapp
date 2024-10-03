@@ -22,7 +22,8 @@
         android:background="@drawable/add_button"
         app:layout_constraintTop_toBottomOf="@+id/pill_list"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        android:onClick="onAddButtonClick"/>
 
     <TextView
         android:layout_height="wrap_content"
