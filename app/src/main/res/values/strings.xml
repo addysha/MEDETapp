@@ -24,4 +24,10 @@
     <string name="last_name">Last Name:</string>
     <string name="first_name">First Name:</string>
 
+
+    <string-array name="am_pm_spinner">
+        <item>am</item>
+        <item>pm</item>
+    </string-array>
+
 </resources>
