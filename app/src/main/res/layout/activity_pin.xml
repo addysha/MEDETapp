@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/titleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_pin"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="48dp"/>
+
+    <LinearLayout
+        android:id="@+id/pinDotsLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/titleTextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp">
+
+        <TextView
+            android:id="@+id/pinDot1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/pin_dot"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/pinDot2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/pin_dot"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/pinDot3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/pin_dot"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/pinDot4"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:background="@drawable/pin_dot"
+            android:layout_margin="8dp"/>
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/numpadLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="3"
+        android:rowCount="4"
+        app:layout_constraintTop_toBottomOf="@id/pinDotsLayout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="48dp">
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="@string/_1"
+            android:textColor="@color/black"
+            android:background="@drawable/clock_back_ground"
+            app:backgroundTint="@null"
+            android:textSize="24sp"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="@string/_2"
+            android:textColor="@color/black"
+            android:background="@drawable/clock_back_ground"
+            app:backgroundTint="@null"
+            android:textSize="24sp"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="@string/_3"
+            android:textColor="@color/black"
+            android:background="@drawable/clock_back_ground"
+            app:backgroundTint="@null"
+            android:textSize="24sp"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="@string/_4"
+            android:textColor="@color/black"
+            android:background="@drawable/clock_back_ground"
+            app:backgroundTint="@null"
+            android:textSize="24sp"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="@string/_5"
+            android:textColor="@color/black"
+            android:background="@drawable/clock_back_ground"
+            app:backgroundTint="@null"
+            android:textSize="24sp"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="@string/_6"
+            android:textColor="@color/black"
+            android:background="@drawable/clock_back_ground"
+            app:backgroundTint="@null"
+            android:textSize="24sp"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="@string/_7"
+            android:textColor="@color/black"
+            android:background="@drawable/clock_back_ground"
+            app:backgroundTint="@null"
+            android:textSize="24sp"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="@string/_8"
+            android:textColor="@color/black"
+            android:background="@drawable/clock_back_ground"
+            app:backgroundTint="@null"
+            android:textSize="24sp"
+            android:layout_margin="8dp"/>
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="@string/_9"
+            android:textColor="@color/black"
+            android:background="@drawable/clock_back_ground"
+            app:backgroundTint="@null"
+            android:textSize="24sp"
+            android:layout_margin="8dp"/>
+<!--        space to keep 0 button centered-->
+        <Space/>
+
+        <Button
+            android:id="@+id/button0"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:text="@string/_0"
+            android:textColor="@color/black"
+            android:background="@drawable/clock_back_ground"
+            app:backgroundTint="@null"
+            android:textSize="24sp"
+            android:layout_margin="8dp"/>
+
+        <TextView
+            android:id="@+id/buttonDelete"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/pin_backspace"
+            android:layout_margin="8dp"/>
+    </GridLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

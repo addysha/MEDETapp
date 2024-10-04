@@ -6,9 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/users_list"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/add_user"
@@ -54,7 +55,7 @@
         android:text="@string/save"
         android:gravity="center"
         android:textSize="40sp"
-        android:onClick="onSaveButtonCLick"
+        android:onClick="onSaveButtonClick"
         android:background="@drawable/white_background_with_stroke"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
