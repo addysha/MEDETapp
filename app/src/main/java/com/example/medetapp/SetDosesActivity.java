@@ -4,8 +4,6 @@ import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TimePicker;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,14 +21,13 @@ public class SetDosesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_doses);
 
-        recyclerView = findViewById(R.id.pill_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
-        //create list of dose times
+        //create list of dose times // change later to retrieve dose times
         doseTimes= new ArrayList<DoseTime>();
 
-        // Set the adapter
+        // fill recycler view
+        recyclerView = findViewById(R.id.pill_list);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
         doseTimeListAdapter = new DoseTimeListAdapter(doseTimes);
         recyclerView.setAdapter(doseTimeListAdapter);
     }
