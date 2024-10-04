@@ -1,0 +1,20 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <shape>
+            <solid
+                android:color="@color/white"
+                />
+            <stroke
+                android:width="2dp"
+            android:color="@color/black" />
+            <corners
+                android:radius="8dp" />
+        </shape>
+    </item>
+    <item>
+        <bitmap
+            android:src="@drawable/add_user_icon"
+            android:gravity="center"/>
+    </item>
+</layer-list>
