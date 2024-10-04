@@ -23,11 +23,11 @@
     <string name="phone_no">Phone Number:</string>
     <string name="last_name">Last Name:</string>
     <string name="first_name">First Name:</string>
+    <string name="add_users">Add User</string>
+    <string name="manage_users">Manage Users</string>
+    <string name="adjust_doses">Adjust Doses</string>
 
 
-    <string-array name="am_pm_spinner">
-        <item>am</item>
-        <item>pm</item>
-    </string-array>
+
 
 </resources>

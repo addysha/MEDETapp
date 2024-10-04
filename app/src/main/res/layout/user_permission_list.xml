@@ -27,7 +27,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Adjust Doses"
+            android:text="@string/adjust_doses"
             android:textSize="20sp"
             android:padding="10dp" />
 
@@ -36,7 +36,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="Device Settings"
+            android:text="@string/device_settings"
             android:textSize="20sp"
             android:padding="10dp" />
 
@@ -45,7 +45,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="User Permissions"
+            android:text="@string/manage_users"
             android:textSize="20sp"
             android:padding="10dp" />
 
