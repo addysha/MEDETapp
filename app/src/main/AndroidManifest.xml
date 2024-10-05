@@ -12,26 +12,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MedetApp"
         tools:targetApi="31">
-        <activity
-            android:name=".LoggedOutActivity"
+
+
+        <activity android:name=".PinActivity"
             android:exported="true"
-            android:label="@string/title_activity_logged_out"
-            android:theme="@style/Theme.MedetApp">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            android:noHistory="true"
+    >            <intent-filter>
+                    <action android:name="android.intent.action.MAIN" />
+                    <category android:name="android.intent.category.LAUNCHER" />
+                </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".ManageUsersActivity"/>
+        <activity android:name=".SetDosesActivity"/>
     </application>
 
 </manifest>
