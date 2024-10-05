@@ -3,15 +3,21 @@ package com.example.medetapp;
 import java.util.ArrayList;
 import java.util.List;
 
+
+//singleton class for accessing all relevant objects
 public class AppState {
 
     private static AppState appState;
+    private User user;
+    private LoginManager loginManager;
 
     private AppState(){
 
+        loginManager = new LoginManager();
+
     }
 
-    // singleton access to appstate
+    // singleton access to AppState
     public static AppState getAppState() {
         if (appState == null){
             appState = new AppState();
@@ -31,4 +37,18 @@ public class AppState {
         return  users;
     }
 
+
+
+    //////// getters and setters ////////////////
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    public LoginManager getLoginManager(){
+        return loginManager;
+    }
 }
