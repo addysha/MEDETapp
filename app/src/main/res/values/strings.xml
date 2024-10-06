@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Medet App</string>
+    <string name="app_name">Medet</string>
     <string name="title_activity_logged_out">LoggedOutActivity</string>
     <string name="medet">Medet</string>
     <string name="login_button">Log In</string>
