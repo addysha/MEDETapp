@@ -25,6 +25,7 @@
         <activity android:name=".MainActivity"/>
         <activity android:name=".ManageUsersActivity"/>
         <activity android:name=".SetDosesActivity"/>
+        <activity android:name=".DeviceSettingsActivity"/>
     </application>
 
 </manifest>
