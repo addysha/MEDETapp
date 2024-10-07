@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-
     public void deviceSettingsButtonClick(View view){
 
         Intent intent = new Intent(this, DeviceSettingsActivity.class);
@@ -28,6 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
     public void dosagePlanButtonClick(View view){
         Intent intent = new Intent(this, SetDosesActivity.class);
+        startActivity(intent);
+    }
+
+    public void userSettingsButtonClick(View view){
+        Intent intent = new Intent(this, ManageUsersActivity.class);
         startActivity(intent);
     }
 }
