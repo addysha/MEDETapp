@@ -6,11 +6,13 @@ public class User {
 
     private String firstName;
     private String lastName;
+    private final String userId;
     private FirebaseUser firebaseUser;
 
-    public User(String firstName, String lastName){
+    public User(String firstName, String lastName,String userId){
         this.firstName = firstName;
         this.lastName = lastName;
+        this.userId = userId;
     }
 
     public String getFirstName(){
@@ -21,5 +23,5 @@ public class User {
         return lastName;
     }
 
-
+    public String getUserId() {return userId;}
 }
