@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
+    //This class handles dynamically changing the DoseTime Recycle Viewer
     public class DoseTimeListAdapter extends RecyclerView.Adapter<DoseTimeListAdapter.ViewHolder> {
 
         private List<DoseTime> doseTimeList;
@@ -27,7 +28,7 @@ import java.util.List;
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
             DoseTime doseTime = doseTimeList.get(position);
-            holder.textViewItem.setText(doseTime.getName());
+            holder.textViewItem.setText(doseTime.getTime());
         }
 
         @Override
