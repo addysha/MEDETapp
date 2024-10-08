@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
+//This Class implements the Manage Users Activity
 public class ManageUsersActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private UserListAdapter userListAdapter;

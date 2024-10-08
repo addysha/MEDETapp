@@ -9,7 +9,7 @@ public class AppState {
 
     private static AppState appState;
     private User user;
-    private LoginManager loginManager;
+    private final LoginManager  loginManager;
 
     private AppState(){
 
@@ -31,8 +31,8 @@ public class AppState {
 
         List<User> users = new ArrayList<User>();
 
-        users.add(new User("john","jobs"));
-        users.add(new User("zuck","burg"));
+        users.add(new User("john","jobs","12"));
+        users.add(new User("zuck","burg","14"));
 
         return  users;
     }

@@ -1,7 +1,7 @@
 package com.example.medetapp;
 import com.google.firebase.auth.FirebaseUser;
 
-//This Class encapsulates all user information includinng FirebaseUser account
+//This Class encapsulates all user information including FirebaseUser account
 public class User {
 
     private String firstName;

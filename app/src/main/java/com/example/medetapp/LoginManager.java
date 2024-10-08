@@ -9,10 +9,10 @@ public class LoginManager {
 
 
     //This method checks if there is a user logged into this device
-    // in the event that there is the method populates the user field of appstate
+    // in the event that there is, the method populates the user field of appstate
     public boolean isUserStored(){
 
-        User user = new User("test","user");
+        User user = new User("test","user","13");
 
         //returning true for now
         AppState.getAppState().setUser(user);

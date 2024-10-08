@@ -5,6 +5,7 @@ import android.os.Bundle;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+//This Class Implements the Device Settings Activity
 public class DeviceSettingsActivity extends AppCompatActivity {
 
     @Override

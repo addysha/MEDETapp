@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 
 import java.util.ArrayList;
 
+//This Class Implements the Pin Activity
 public class PinActivity extends AppCompatActivity {
 
     ArrayList<Integer> pin = new ArrayList<>();

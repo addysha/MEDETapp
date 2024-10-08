@@ -86,7 +86,8 @@ public class SetDosesActivity extends AppCompatActivity {
 
     // This method adds a dose time to the list and updates the UI
     public void addDoseTime(String time){
-        DoseTime doseTime = new DoseTime(time);
+
+        DoseTime doseTime = new DoseTime(time,"jahjethj");
         doseTimes.add(doseTime);
         int position = doseTimes.size();
         doseTimeListAdapter.notifyItemInserted(position);

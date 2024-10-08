@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+//This Class Implements the Greeting Page Activity
 public class GreetingPageActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
