@@ -1,75 +1,51 @@
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="center_horizontal"> <!-- Center the children horizontally -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/medet"
+        android:textColor="@color/black"
+        android:textSize="64sp"
+        android:gravity="center"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintBottom_toTopOf="@+id/greeting_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+         />
 
-            <TextView
-                android:id="@+id/title"
-                android:textColor="@color/black"
-                android:textSize="64sp"
-                android:layout_marginBottom="70dp"
-                android:layout_height="wrap_content"
-                android:layout_width="wrap_content"
-                android:text="@string/medet"
-                android:gravity="center" />
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/greeting_logo"
+        android:layout_width="0dp"
+        android:layout_height="190dp"
+        android:src="@drawable/logo"
+        android:scaleType="fitCenter"
+        app:shapeAppearanceOverlay="@style/logo_corner"
+        app:layout_constraintBottom_toTopOf="@+id/sign_in_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title"
+        android:layout_marginBottom="40dp"
+        android:layout_marginHorizontal="32dp" />
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/greeting_logo"
-                app:shapeAppearanceOverlay="@style/logo_corner"
-                android:layout_width="match_parent"
-                android:layout_height="190dp"
-                android:layout_marginBottom="84dp"
-                android:layout_marginHorizontal="89dp"
-                android:src="@drawable/logo"
-                android:scaleType="fitXY" />
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/greeting_logo"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="20dp"
+        android:padding="10dp"
+        android:textColor="@color/white" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:background="@drawable/button_background"
-                android:paddingVertical="15dp"
-                android:layout_marginTop="40dp"
-
-                android:layout_marginBottom="40dp"
-                android:layout_marginHorizontal="105dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/login_button"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/login_button" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
-                android:background="@drawable/button_background"
-                android:paddingVertical="14dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginHorizontal="105dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/signup_button"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"
-                    android:layout_height="wrap_content"
-                    android:layout_width="wrap_content"
-                    android:text="@string/signup_button" />
-            </LinearLayout>
-        </LinearLayout>
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
