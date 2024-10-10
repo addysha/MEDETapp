@@ -80,7 +80,8 @@ public class DeviceList extends AppCompatActivity implements DeviceAdapter.OnDev
 
     @Override
     public void onDeviceClick(Device device) {
-        Log.d("DeviceList", "Device clicked: " + device.getDeviceNickname());
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 
     @Override

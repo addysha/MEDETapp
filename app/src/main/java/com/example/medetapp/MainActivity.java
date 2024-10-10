@@ -19,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
+    public void onclickBackToDeviceList(View view){
+        Intent intent = new Intent(this, DeviceList.class);
+        startActivity(intent);
+    }
+
     public void deviceSettingsButtonClick(View view){
 
         Intent intent = new Intent(this, DeviceSettingsActivity.class);
