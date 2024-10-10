@@ -33,8 +33,12 @@ android {
 }
 
 dependencies {
-    implementation("com.google.android.gms:play-services-auth:21.0.0") // Use the latest version available
-    implementation("com.google.firebase:firebase-auth:21.0.1") // Use the latest version available
+    implementation(libs.play.services.auth) // Use the latest version available
+    implementation(libs.firebase.auth.v2101) // Use the latest version available
+
+    //Realtime db
+    implementation(platform(libs.firebase.bom))
+    implementation(libs.google.firebase.database)
 
     implementation(libs.material.v1120) // or the latest version
     implementation(libs.appcompat)

@@ -1,6 +1,8 @@
 [versions]
 agp = "8.6.0"
 firebaseAuthVersion = "22.3.0"
+firebaseBom = "33.4.0"
+googleFirebaseAuth = "21.0.1"
 googlePlayServicesAuth = "20.7.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
@@ -19,7 +21,11 @@ firebaseAuth = "23.0.0"
 playServicesBasement = "18.4.0"
 
 [libraries]
+firebase-auth-v2101 = { module = "com.google.firebase:firebase-auth", version.ref = "googleFirebaseAuth" }
 firebase-auth-v2230 = { module = "com.google.firebase:firebase-auth", version.ref = "firebaseAuthVersion" }
+firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
+firebase-database = { module = "com.google.firebase:firebase-database" }
+google-firebase-database = { module = "com.google.firebase:firebase-database" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }

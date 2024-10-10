@@ -4,6 +4,7 @@ import static com.google.android.gms.common.util.CollectionUtils.listOf;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -11,6 +12,10 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
+
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 
@@ -31,7 +36,6 @@ public class PinActivity extends AppCompatActivity {
             Intent intent = new Intent(this, GreetingPageActivity.class);
             startActivity(intent);
         }
-
 
         // Initialize PIN dots
         pinDots = new View[] {
@@ -90,7 +94,18 @@ public class PinActivity extends AppCompatActivity {
     private void verifyPin(){
 
         if (AppState.getAppState().getLoginManager().verifyPin(pin)){
-            Intent intent = new Intent(this, MainActivity.class);
+//            FirebaseDatabase database = FirebaseDatabase.getInstance();
+//            DatabaseReference myRef = database.getReference("message");
+//
+//            myRef.setValue("Hello, World!").addOnCompleteListener(task -> {
+//                if (task.isSuccessful()) {
+//                    Log.d("TAG", "Data written successfully");
+//                } else {
+//                    Log.e("TAG", "Data write failed: " + task.getException());
+//                }
+//            });
+
+            Intent intent = new Intent(this, DeviceList.class);
             startActivity(intent);
             finish();
         }

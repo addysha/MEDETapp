@@ -12,7 +12,6 @@ public class AppState {
     private final LoginManager  loginManager;
 
     private AppState(){
-
         loginManager = new LoginManager();
 
     }

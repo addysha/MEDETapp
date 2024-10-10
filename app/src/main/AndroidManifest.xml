@@ -30,6 +30,8 @@
         <activity android:name=".SetDosesActivity"/>
         <activity android:name=".DeviceSettingsActivity"/>
         <activity android:name=".GreetingPageActivity"/>
+        <activity android:name=".DeviceList"/>
+        <activity android:name=".AddDevice"/>
     </application>
 
 </manifest>

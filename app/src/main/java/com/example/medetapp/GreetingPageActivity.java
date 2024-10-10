@@ -23,6 +23,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class GreetingPageActivity extends AppCompatActivity {
     private static final String TAG = "GreetingPageActivity";
@@ -115,7 +117,23 @@ public class GreetingPageActivity extends AppCompatActivity {
             Toast.makeText(this, "Sign in failed", Toast.LENGTH_SHORT).show();
         }
         else{
-            startActivity(new Intent(this, MainActivity.class));
+            String userId = user.getUid();
+
+
+            // Add user to DB
+            FirebaseDatabase database = FirebaseDatabase.getInstance();
+            DatabaseReference usersRef = database.getReference("users").child(userId);
+
+            // Set user information
+            usersRef.child("email").setValue(user.getEmail()).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    Log.d(TAG, "User added successfully.");
+                } else {
+                    Log.e(TAG, "User addition failed: " + task.getException());
+                }
+            });
+
+            startActivity(new Intent(this, DeviceList.class));
             finish();
         }
     }
