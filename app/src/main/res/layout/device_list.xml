@@ -16,7 +16,7 @@
             android:layout_height="50dp"
             android:scaleType="fitCenter"
             android:contentDescription="Profile Button"
-            android:src="@drawable/profile_button"
+            android:src="@drawable/profile_img"
             android:layout_marginEnd="15dp"
             android:background="@android:color/transparent"
             android:backgroundTint="@color/white"

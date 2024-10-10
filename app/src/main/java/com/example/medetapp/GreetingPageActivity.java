@@ -23,8 +23,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class GreetingPageActivity extends AppCompatActivity {
     private static final String TAG = "GreetingPageActivity";
@@ -112,29 +115,43 @@ public class GreetingPageActivity extends AppCompatActivity {
     }
 
     //this user
-    private void updateUi(FirebaseUser user){
-        if (user == null){
+    private void updateUi(FirebaseUser user) {
+        if (user == null) {
             Toast.makeText(this, "Sign in failed", Toast.LENGTH_SHORT).show();
-        }
-        else{
+        } else {
             String userId = user.getUid();
 
-
-            // Add user to DB
+            // Get a reference to the Firebase database
             FirebaseDatabase database = FirebaseDatabase.getInstance();
             DatabaseReference usersRef = database.getReference("users").child(userId);
 
-            // Set user information
-            usersRef.child("email").setValue(user.getEmail()).addOnCompleteListener(task -> {
-                if (task.isSuccessful()) {
-                    Log.d(TAG, "User added successfully.");
-                } else {
-                    Log.e(TAG, "User addition failed: " + task.getException());
+            // Check if the user already exists
+            usersRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    if (dataSnapshot.exists()) {
+                        Log.d(TAG, "User already exists: " + userId);
+                    } else {
+                        // User does not exist, proceed to add them
+                        usersRef.child("email").setValue(user.getEmail()).addOnCompleteListener(task -> {
+                            if (task.isSuccessful()) {
+                                Log.d(TAG, "User added successfully.");
+                            } else {
+                                Log.e(TAG, "User addition failed: " + task.getException());
+                            }
+                        });
+                    }
+
+                    //Go to device list homepage
+                    startActivity(new Intent(GreetingPageActivity.this, DeviceList.class));
+                    finish();
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                    Log.e(TAG, "Database error: " + databaseError.getMessage());
                 }
             });
-
-            startActivity(new Intent(this, DeviceList.class));
-            finish();
         }
     }
 
