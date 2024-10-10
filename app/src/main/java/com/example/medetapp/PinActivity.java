@@ -27,7 +27,7 @@ public class PinActivity extends AppCompatActivity {
         setContentView(R.layout.activity_pin);
 
         //if not logged in we want to direct to the greeting page
-        if (!(AppState.getAppState().getLoginManager().isUserStored())){
+        if (!(AppState.getAppState().getLoginManager().isUserLoggedIn())){
             Intent intent = new Intent(this, GreetingPageActivity.class);
             startActivity(intent);
         }
