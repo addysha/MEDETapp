@@ -33,15 +33,15 @@ android {
 }
 
 dependencies {
-    implementation("com.google.android.material:material:1.10.0") // or the latest version
+    implementation("com.google.android.gms:play-services-auth:21.0.0") // Use the latest version available
+    implementation("com.google.firebase:firebase-auth:21.0.1") // Use the latest version available
+
+    implementation(libs.material.v1120) // or the latest version
     implementation(libs.appcompat)
-    implementation(libs.material)
     implementation(libs.activity)
     implementation(libs.constraintlayout)
     implementation(libs.recyclerview)
     implementation(libs.gridlayout)
-    implementation(libs.firebase.auth)
-    implementation(libs.play.services.basement)
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)

@@ -13,7 +13,20 @@
           "package_name": "com.example.medetapp"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "168420601752-dlvh5edvsmn48fhsv4nh183j9n622of1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medetapp",
+            "certificate_hash": "3a1bb838082fc99b50965c6e64696ee2a8798520"
+          }
+        },
+        {
+          "client_id": "168420601752-ad3fh2snlegm3k27dpar46s7pstjkj3s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCKgUs_AepcpSfkfYIEgFjnaJ4kvexneV0"
@@ -21,7 +34,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168420601752-ad3fh2snlegm3k27dpar46s7pstjkj3s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     },
@@ -32,7 +50,20 @@
           "package_name": "com.example.medetdevice"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "168420601752-gfu4iaqgqboor9m5l4h4spju6s5o1uuu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.medetdevice",
+            "certificate_hash": "6dec822faef4b1269664b1f7a9cf33d7945139c6"
+          }
+        },
+        {
+          "client_id": "168420601752-ad3fh2snlegm3k27dpar46s7pstjkj3s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCKgUs_AepcpSfkfYIEgFjnaJ4kvexneV0"
@@ -40,7 +71,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "168420601752-ad3fh2snlegm3k27dpar46s7pstjkj3s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
