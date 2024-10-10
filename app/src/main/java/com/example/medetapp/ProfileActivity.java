@@ -27,4 +27,9 @@ public class ProfileActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
+
+    public void onclickBackToDeviceList(View view){
+        Intent intent = new Intent(this, DeviceList.class);
+        startActivity(intent);
+    }
 }
