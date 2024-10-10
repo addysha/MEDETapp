@@ -81,6 +81,7 @@ public class DeviceList extends AppCompatActivity implements DeviceAdapter.OnDev
     @Override
     public void onDeviceClick(Device device) {
         Intent intent = new Intent(this, MainActivity.class);
+        intent.putExtra("device_nickname", device.getDeviceNickname());
         startActivity(intent);
     }
 

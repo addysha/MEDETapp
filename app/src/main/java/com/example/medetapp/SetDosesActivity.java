@@ -1,6 +1,7 @@
 package com.example.medetapp;
 
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TimePicker;
@@ -91,6 +92,18 @@ public class SetDosesActivity extends AppCompatActivity {
         doseTimes.add(doseTime);
         int position = doseTimes.size();
         doseTimeListAdapter.notifyItemInserted(position);
+    }
+
+    public void onclickCancelDosagePlan(View view){
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
+    }
+
+    public void onclickSaveDosagePlan(View view){
+        //TODO: save settings to DB
+
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
 

@@ -3,6 +3,7 @@ package com.example.medetapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
+
+        String deviceNickname = getIntent().getStringExtra("device_nickname");
+        TextView nicknameDisplay = findViewById(R.id.device_nickname_display);
+
+        nicknameDisplay.setText(deviceNickname);
+
     }
 
     public void onclickBackToDeviceList(View view){

@@ -77,8 +77,10 @@
             android:layout_weight="1"
             android:text="Cancel"
             android:textSize="18sp"
+            android:backgroundTint="@color/black"
             android:layout_gravity="bottom"
             android:layout_margin="5dp"
+            android:padding="5dp"
             android:onClick="onCancelDevice"/>
 
         <Button
@@ -87,8 +89,10 @@
             android:layout_weight="1"
             android:text="Save"
             android:textSize="18sp"
+            android:backgroundTint="@color/black"
             android:layout_gravity="bottom"
             android:layout_margin="5dp"
+            android:padding="5dp"
             android:onClick="onSaveDevice"/>
 
 
