@@ -72,7 +72,6 @@ public class DeviceList extends AppCompatActivity implements DeviceAdapter.OnDev
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Log.e("DeviceList", "Failed to read devices: " + databaseError.getMessage());
-                Toast.makeText(DeviceList.this, "Failed to load devices.", Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -92,6 +91,11 @@ public class DeviceList extends AppCompatActivity implements DeviceAdapter.OnDev
 
     public void onAddDevice(View view){
         Intent intent = new Intent(this, AddDevice.class);
+        startActivity(intent);
+    }
+
+    public void onclickProfile(View view){
+        Intent intent = new Intent(this, ProfileActivity.class);
         startActivity(intent);
     }
 }

@@ -32,6 +32,7 @@
         <activity android:name=".GreetingPageActivity"/>
         <activity android:name=".DeviceList"/>
         <activity android:name=".AddDevice"/>
+        <activity android:name=".ProfileActivity"/>
     </application>
 
 </manifest>
