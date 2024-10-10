@@ -94,17 +94,6 @@ public class PinActivity extends AppCompatActivity {
     private void verifyPin(){
 
         if (AppState.getAppState().getLoginManager().verifyPin(pin)){
-//            FirebaseDatabase database = FirebaseDatabase.getInstance();
-//            DatabaseReference myRef = database.getReference("message");
-//
-//            myRef.setValue("Hello, World!").addOnCompleteListener(task -> {
-//                if (task.isSuccessful()) {
-//                    Log.d("TAG", "Data written successfully");
-//                } else {
-//                    Log.e("TAG", "Data write failed: " + task.getException());
-//                }
-//            });
-
             Intent intent = new Intent(this, DeviceList.class);
             startActivity(intent);
             finish();
