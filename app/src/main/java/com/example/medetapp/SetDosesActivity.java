@@ -18,7 +18,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -26,6 +25,7 @@ public class SetDosesActivity extends AppCompatActivity {
     private RecyclerView recyclerDevices;
     private MedicationAdapter medicationAdapter;
     private List<Medication> medicationList;
+    private List<String> medicationKeys; // List to hold medication keys
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,7 @@ public class SetDosesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_set_doses);
 
         medicationList = new ArrayList<>();
+        medicationKeys = new ArrayList<>();
         recyclerDevices = findViewById(R.id.medications);
         recyclerDevices.setLayoutManager(new LinearLayoutManager(this));
 
@@ -53,19 +54,27 @@ public class SetDosesActivity extends AppCompatActivity {
         userDevicesRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                //Clear to prevent duplicates on re-loading
+                // Clear to prevent duplicates on re-loading
                 medicationList.clear();
 
-                //For each node retrieved, create a device and add it to a list of devices
+                // For each node retrieved, create a Medication and set its key
                 for (DataSnapshot medicationSnapshot : dataSnapshot.getChildren()) {
+                    String key = medicationSnapshot.getKey(); // Get the key
                     String medicationName = medicationSnapshot.child("name").getValue(String.class);
                     String medicationInfo = medicationSnapshot.child("information").getValue(String.class);
                     String medicationTime = medicationSnapshot.child("time").getValue(String.class);
-                    medicationList.add(new Medication(medicationName, medicationInfo, medicationTime));
+
+                    // Create the Medication object
+                    Medication medication = new Medication(medicationName, medicationInfo, medicationTime);
+                    medication.setDBKey(key); // Set the key
+
+                    medicationList.add(medication);
                 }
 
-                //Sort the list of medications by date
+                // Sort the list of medications by time
                 medicationList.sort(Comparator.comparing(Medication::getTime));
+
+                Log.w("SET MED", "SET MED : " + medicationList.get(0).getName());
 
                 medicationAdapter = new MedicationAdapter(medicationList, SetDosesActivity.this);
                 recyclerDevices.setAdapter(medicationAdapter);
@@ -76,19 +85,19 @@ public class SetDosesActivity extends AppCompatActivity {
                 Log.e("MedicationList", "Failed to read medications: " + databaseError.getMessage());
             }
         });
-
     }
 
-    public void onAddButtonClick(View view){
+    public void onAddButtonClick(View view) {
         Intent intent = new Intent(this, AddMedicationActivity.class);
         startActivity(intent);
     }
 
-    public void onclickBackToMainActivity(View view){
+    public void onclickBackToMainActivity(View view) {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 }
+
 
 
 

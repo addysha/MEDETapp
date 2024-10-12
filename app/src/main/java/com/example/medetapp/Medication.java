@@ -1,6 +1,9 @@
 package com.example.medetapp;
 
-public class Medication {
+import java.io.Serializable;
+
+public class Medication implements Serializable {
+    private String key;
     private String name;
     private String information;
     private String time;
@@ -12,14 +15,22 @@ public class Medication {
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public String getInformation() {
-        return this.information;
+        return information;
     }
 
     public String getTime() {
-        return this.time;
+        return time;
+    }
+
+    public void setDBKey(String key){
+        this.key = key;
+    }
+
+    public String getDBKey(){
+        return key;
     }
 }

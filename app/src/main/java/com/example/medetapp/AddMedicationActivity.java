@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 
 import androidx.activity.EdgeToEdge;
@@ -14,23 +15,41 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import org.w3c.dom.Text;
+
 public class AddMedicationActivity extends AppCompatActivity {
     private String medicationName;
     private String medicationInfo;
+    private String medicationKey = null;
     private TimePicker medicationTimePicker;
+    private Medication medication;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_add_medication);
+
+        medicationTimePicker = findViewById(R.id.medication_time);
+        medication = (Medication) getIntent().getSerializableExtra("medication");
+
+        //If we are editing a medication instead of a new one
+        if (medication != null) {
+            TextView title = findViewById(R.id.medication_title);
+            title.setText("Edit Medication");
+            medicationKey = medication.getDBKey();
+            ((EditText) findViewById(R.id.medication_name)).setText(medication.getName());
+            ((EditText) findViewById(R.id.medication_info)).setText(medication.getInformation());
+            String[] timeParts = medication.getTime().split(":");
+            medicationTimePicker.setHour(Integer.parseInt(timeParts[0]));
+            medicationTimePicker.setMinute(Integer.parseInt(timeParts[1]));
+        }
     }
 
     public void onSaveMedication(View view) {
         // Get medication details from EditText and TimePicker
-        String medicationName = ((EditText)findViewById(R.id.medication_name)).getText().toString();
-        String medicationInfo = ((EditText)findViewById(R.id.medication_info)).getText().toString();
-        TimePicker medicationTimePicker = findViewById(R.id.medication_time);
+        medicationName = ((EditText)findViewById(R.id.medication_name)).getText().toString();
+        medicationInfo = ((EditText)findViewById(R.id.medication_info)).getText().toString();
 
         // Get the hour and minute values from the timepicker
         int hour = medicationTimePicker.getHour();
@@ -45,12 +64,14 @@ public class AddMedicationActivity extends AppCompatActivity {
             DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference();
 
             // Create a new Medication object with the retrieved info
-            Medication medication = new Medication(medicationName, medicationInfo, medicationTime);
+            medication = new Medication(medicationName, medicationInfo, medicationTime);
 
             // Generate a unique key for the medication
-            String medicationKey = databaseReference.child("devices")
-                    .child(AppState.getAppState().getCurrentDevice().getDeviceID()) //getting device ID
-                    .child("medications").push().getKey();
+            if(medicationKey == null){
+                medicationKey = databaseReference.child("devices")
+                        .child(AppState.getAppState().getCurrentDevice().getDeviceID()) //getting device ID
+                        .child("medications").push().getKey();
+            }
 
             if (medicationKey != null) {
                 // Save medication under the user's node
