@@ -1,107 +1,96 @@
 package com.example.medetapp;
 
-import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
-import android.widget.TimePicker;
+
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class SetDosesActivity extends AppCompatActivity {
-
-    private RecyclerView recyclerView;
-    private DoseTimeListAdapter doseTimeListAdapter;
-    private List<DoseTime> doseTimes;
+    private RecyclerView recyclerDevices;
+    private MedicationAdapter medicationAdapter;
+    private List<Medication> medicationList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_doses);
 
+        medicationList = new ArrayList<>();
+        recyclerDevices = findViewById(R.id.medications);
+        recyclerDevices.setLayoutManager(new LinearLayoutManager(this));
 
-        //create list of dose times // change later to retrieve dose times
-        doseTimes= new ArrayList<DoseTime>();
-
-        // fill recycler view
-        recyclerView = findViewById(R.id.pill_list);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        doseTimeListAdapter = new DoseTimeListAdapter(doseTimes);
-        recyclerView.setAdapter(doseTimeListAdapter);
+        //Call for all devices associated with this user from the DB
+        fetchMedications();
     }
 
+    private void fetchMedications() {
+        FirebaseUser currentUser = AppState.getAppState().getLoginManager().getFirebaseAuth().getCurrentUser();
+        if (currentUser == null) {
+            Log.e("MedicationList", "User not authenticated");
+            return;
+        }
+
+        DatabaseReference userDevicesRef = FirebaseDatabase.getInstance().getReference("devices")
+                .child(AppState.getAppState().getCurrentDevice().getDeviceID()) // get device id
+                .child("medications");
+
+        userDevicesRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                //Clear to prevent duplicates on re-loading
+                medicationList.clear();
+
+                //For each node retrieved, create a device and add it to a list of devices
+                for (DataSnapshot medicationSnapshot : dataSnapshot.getChildren()) {
+                    String medicationName = medicationSnapshot.child("name").getValue(String.class);
+                    String medicationInfo = medicationSnapshot.child("information").getValue(String.class);
+                    String medicationTime = medicationSnapshot.child("time").getValue(String.class);
+                    medicationList.add(new Medication(medicationName, medicationInfo, medicationTime));
+                }
+
+                //Sort the list of medications by date
+                Collections.sort(medicationList, new Comparator<Medication>() {
+                    @Override
+                    public int compare(Medication med1, Medication med2) {
+                        return med1.getTime().compareTo(med2.getTime());
+                    }
+                });
+
+                medicationAdapter = new MedicationAdapter(medicationList, SetDosesActivity.this);
+                recyclerDevices.setAdapter(medicationAdapter);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("MedicationList", "Failed to read medications: " + databaseError.getMessage());
+            }
+        });
+
+    }
 
     public void onAddButtonClick(View view){
-        showTimePickerDialog();
-    }
-
-    public void showTimePickerDialog() {
-        // Start the time at 12 AM (0:00)
-        int startHour = 0; // 12 AM
-        int startMinute = 0; // 00 minutes
-
-        // define time picker and function called on choosing time
-        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
-                new TimePickerDialog.OnTimeSetListener() {
-                    @Override
-                    public void onTimeSet(TimePicker view, int hour, int minute) {
-
-                        //creat time string
-
-                        String stringHour;
-                        String stringMinute;
-                        String amPm = "am";
-
-                        //make sure time is formatted to 12 hour time
-                        if (hour == 0) {
-                            stringHour = "12";
-                        } else if (hour > 12) {
-                            hour = hour - 12;
-                            amPm = "pm";
-                            stringHour = Integer.toString(hour);
-                        } else {
-                            stringHour = Integer.toString(hour);
-                        }
-
-                        // make sure time is formatted with two digits
-                        if (minute == 0) {
-                            stringMinute = "00";
-                        } else {
-                            stringMinute = Integer.toString(minute);
-                        }
-
-                        // add time
-                        addDoseTime(stringHour+":"+stringMinute+" "+amPm);
-                    }
-
-
-                }, startHour, startMinute, false);
-
-        //show dialog
-        timePickerDialog.show();
-    }
-
-
-    // This method adds a dose time to the list and updates the UI
-    public void addDoseTime(String time){
-
-        DoseTime doseTime = new DoseTime(time,"jahjethj");
-        doseTimes.add(doseTime);
-        int position = doseTimes.size();
-        doseTimeListAdapter.notifyItemInserted(position);
-    }
-
-    public void onclickCancelDosagePlan(View view){
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, AddMedicationActivity.class);
         startActivity(intent);
     }
 
-    public void onclickSaveDosagePlan(View view){
-        //TODO: save settings to DB
-
+    public void onclickBackToMainActivity(View view){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

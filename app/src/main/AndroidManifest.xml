@@ -33,6 +33,7 @@
         <activity android:name=".DeviceList"/>
         <activity android:name=".AddDevice"/>
         <activity android:name=".ProfileActivity"/>
+        <activity android:name=".AddMedicationActivity"/>
     </application>
 
 </manifest>

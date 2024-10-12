@@ -48,7 +48,7 @@ public class AddDevice extends AppCompatActivity {
                             Log.d("SaveDevice", "Device saved successfully with ID: " + deviceID);
                         } else {
                             // Log failure message
-                            Log.e("SaveDevice", "Failed to save device: " + task.getException().getMessage());
+                            Log.e("SaveDevice", "Failed to save device: " + task.getException());
                         }
                     });
         } else {

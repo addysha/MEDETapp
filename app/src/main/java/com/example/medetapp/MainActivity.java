@@ -19,10 +19,10 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
 
-        String deviceNickname = getIntent().getStringExtra("device_nickname");
         TextView nicknameDisplay = findViewById(R.id.device_nickname_display);
 
-        nicknameDisplay.setText(deviceNickname);
+        //Get and display the current device's nickname
+        nicknameDisplay.setText(AppState.getAppState().getCurrentDevice().getDeviceNickname());
 
     }
 

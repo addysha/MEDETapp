@@ -14,7 +14,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add Device"
+            android:text="Add Medication"
             android:textSize="36sp"
             android:textAlignment="center"
             app:layout_constraintTop_toTopOf="parent"/>
@@ -32,25 +32,26 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
-        android:layout_margin="25dp"
+        android:layout_marginHorizontal="25dp"
+        android:layout_marginVertical="5dp"
         android:orientation="vertical"
         android:gravity="center">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Nickname:"
+            android:text="Medication:"
             android:textSize="36sp"
             android:gravity="bottom|center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"/>
 
         <EditText
-            android:id="@+id/device_nickname"
+            android:id="@+id/medication_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Enter the device nickname..."
+            android:hint="Enter the name of the medication..."
             android:background="@android:drawable/edit_text"
             android:textColorHint="@android:color/darker_gray"
             android:layout_marginTop="5dp"
@@ -60,22 +61,37 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Device ID:"
+            android:text="Information:"
             android:textSize="36sp"
             android:gravity="bottom|center"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="5dp"/>
 
         <EditText
-            android:id="@+id/device_ID"
+            android:id="@+id/medication_info"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
-            android:hint="Enter the device ID..."
+            android:hint="I.e Take with water / food"
             android:background="@android:drawable/edit_text"
             android:textColorHint="@android:color/darker_gray"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="10dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Time:"
+            android:textSize="36sp"
+            android:gravity="bottom|center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"/>
+
+        <TimePicker
+            android:id="@+id/medication_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:timePickerMode="spinner"/>
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -96,7 +112,7 @@
             android:layout_gravity="bottom"
             android:layout_margin="5dp"
             android:padding="5dp"
-            android:onClick="onCancelDevice"/>
+            android:onClick="onCancelMedication"/>
 
         <Button
             android:layout_width="0dp"
@@ -108,7 +124,7 @@
             android:layout_gravity="bottom"
             android:layout_margin="5dp"
             android:padding="5dp"
-            android:onClick="onSaveDevice"/>
+            android:onClick="onSaveMedication"/>
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>

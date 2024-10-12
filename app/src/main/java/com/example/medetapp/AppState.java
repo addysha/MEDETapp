@@ -10,6 +10,7 @@ public class AppState {
     private static AppState appState;
     private User user;
     private final LoginManager  loginManager;
+    private Device currDevice;
 
     private AppState(){
         loginManager = new LoginManager();
@@ -49,5 +50,13 @@ public class AppState {
 
     public LoginManager getLoginManager(){
         return loginManager;
+    }
+
+    public void setCurrentDevice(Device currDevice){
+        this.currDevice = currDevice;
+    }
+
+    public Device getCurrentDevice(){
+        return this.currDevice;
     }
 }
