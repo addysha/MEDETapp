@@ -36,7 +36,6 @@ public class SetDosesActivity extends AppCompatActivity {
         recyclerDevices = findViewById(R.id.medications);
         recyclerDevices.setLayoutManager(new LinearLayoutManager(this));
 
-        //Call for all devices associated with this user from the DB
         fetchMedications();
     }
 
@@ -66,12 +65,7 @@ public class SetDosesActivity extends AppCompatActivity {
                 }
 
                 //Sort the list of medications by date
-                Collections.sort(medicationList, new Comparator<Medication>() {
-                    @Override
-                    public int compare(Medication med1, Medication med2) {
-                        return med1.getTime().compareTo(med2.getTime());
-                    }
-                });
+                medicationList.sort(Comparator.comparing(Medication::getTime));
 
                 medicationAdapter = new MedicationAdapter(medicationList, SetDosesActivity.this);
                 recyclerDevices.setAdapter(medicationAdapter);
