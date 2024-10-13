@@ -8,19 +8,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
 public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.MedicationViewHolder> {
     private List<Medication> medicationList;
     private Context context;
+    private SetDosesActivity activity;
 
-    public MedicationAdapter(List<Medication> medicationList, Context context) {
+    public MedicationAdapter(List<Medication> medicationList, Context context, SetDosesActivity activity) {
         this.medicationList = medicationList;
         this.context = context;
+        this.activity = activity;
 
         // Log the size of the medication list
         Log.d("MedicationAdapter", "List size: " + medicationList.size());
@@ -58,8 +64,20 @@ public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.Me
 
             // Handle delete button click
             holder.deleteButton.setOnClickListener(v -> {
-                Log.d("MedicationAdapter", "Delete clicked for: " + medication.getName());
-                // TODO: Implement delete functionality
+                //Get reference to medications from current device looking at
+                DatabaseReference deviceRef = FirebaseDatabase.getInstance().getReference("devices")
+                        .child(AppState.getAppState().getCurrentDevice().getDeviceID())
+                        .child("medications");
+
+                //Delete the medication and recall to fetch and display
+                deviceRef.child(medication.getDBKey()).removeValue().addOnCompleteListener(task -> {
+                    if (task.isSuccessful()) {
+                        activity.fetchMedications(); // Fetch updated medications after deletion
+                        Log.d("MedicationAdapter", "Medication deleted successfully: " + medication.getName());
+                    } else {
+                        Log.e("MedicationAdapter", "Failed to delete medication: " + task.getException());
+                    }
+                });
             });
         } else {
             Log.w("MedicationAdapter", "Medication is null at position: " + position);

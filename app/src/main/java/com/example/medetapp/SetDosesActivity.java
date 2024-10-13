@@ -40,7 +40,7 @@ public class SetDosesActivity extends AppCompatActivity {
         fetchMedications();
     }
 
-    private void fetchMedications() {
+    public void fetchMedications() {
         FirebaseUser currentUser = AppState.getAppState().getLoginManager().getFirebaseAuth().getCurrentUser();
         if (currentUser == null) {
             Log.e("MedicationList", "User not authenticated");
@@ -76,7 +76,7 @@ public class SetDosesActivity extends AppCompatActivity {
 
                 Log.w("SET MED", "SET MED : " + medicationList.get(0).getName());
 
-                medicationAdapter = new MedicationAdapter(medicationList, SetDosesActivity.this);
+                medicationAdapter = new MedicationAdapter(medicationList, SetDosesActivity.this, SetDosesActivity.this);
                 recyclerDevices.setAdapter(medicationAdapter);
             }
 
