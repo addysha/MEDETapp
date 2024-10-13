@@ -72,7 +72,7 @@ public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.Me
                 //Delete the medication and recall to fetch and display
                 deviceRef.child(medication.getDBKey()).removeValue().addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
-                        activity.fetchMedications(); // Fetch updated medications after deletion
+                        activity.fetchMedications();
                         Log.d("MedicationAdapter", "Medication deleted successfully: " + medication.getName());
                     } else {
                         Log.e("MedicationAdapter", "Failed to delete medication: " + task.getException());

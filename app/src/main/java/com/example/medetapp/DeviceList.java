@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class DeviceList extends AppCompatActivity implements DeviceAdapter.OnDeviceClickListener{
     private RecyclerView recyclerDevices;
@@ -86,7 +87,20 @@ public class DeviceList extends AppCompatActivity implements DeviceAdapter.OnDev
 
     @Override
     public void onDeviceDelete(Device device) {
-        Log.d("DeviceDelete", "Device deleted: " + device.getDeviceNickname());
+        //Get reference to the devices from currently logged in user
+        DatabaseReference deviceRef = FirebaseDatabase.getInstance().getReference("users")
+                .child(Objects.requireNonNull(AppState.getAppState().getLoginManager().getFirebaseAuth().getUid()))
+                .child("devices");
+
+        //Delete the device and recall to fetch and display
+        deviceRef.child(device.getDeviceID()).removeValue().addOnCompleteListener(task -> {
+            if (task.isSuccessful()) {
+                fetchUserDevices();
+                Log.d("DeviceList", "Device deleted successfully: " + device.getDeviceID());
+            } else {
+                Log.e("DeviceList", "Failed to delete device: " + task.getException());
+            }
+        });
     }
 
     public void onAddDevice(View view){
