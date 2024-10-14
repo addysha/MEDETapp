@@ -74,8 +74,6 @@ public class SetDosesActivity extends AppCompatActivity {
                 // Sort the list of medications by time
                 medicationList.sort(Comparator.comparing(Medication::getTime));
 
-                Log.w("SET MED", "SET MED : " + medicationList.get(0).getName());
-
                 medicationAdapter = new MedicationAdapter(medicationList, SetDosesActivity.this, SetDosesActivity.this);
                 recyclerDevices.setAdapter(medicationAdapter);
             }
