@@ -81,6 +81,9 @@ public class DeviceList extends AppCompatActivity implements DeviceAdapter.OnDev
     @Override
     public void onDeviceClick(Device device) {
         AppState.getAppState().setCurrentDevice(device);
+        //Fetch the devices settings
+        AppState.getAppState().getCurrentDevice().fetchDeviceSettings();
+
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }

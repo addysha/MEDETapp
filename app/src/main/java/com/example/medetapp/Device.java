@@ -1,25 +1,58 @@
 package com.example.medetapp;
 
+import android.util.Log;
+
+import androidx.annotation.NonNull;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
 import java.util.ArrayList;
 
 public class Device {
     private final String deviceNickname;
     private final String deviceID;
 
-    private boolean lightsOn;
-    private boolean soundOn;
-    private int soundVolume;
+    private boolean medicationTaken = true;
+    private boolean alertLights;
+    private boolean missedMedication;
+    private boolean sendAlerts;
+    private boolean alarm;
+    private float timeUntilAlert;
+    private float alarmVolume;
 
     private ArrayList<Medication> medications;
 
     Device(String deviceID, String deviceNickname){
         this.deviceID = deviceID;
         this.deviceNickname = deviceNickname;
+    }
 
-        //default values
-        lightsOn = false;
-        soundOn = true;
-        soundVolume = 100;
+    /* Method to fetch all the device settings from the db and update in real time */
+    public void fetchDeviceSettings() {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference()
+                .child("devices")
+                .child(deviceID);
+
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                alertLights = dataSnapshot.child("alertLights").getValue(Boolean.class);
+                missedMedication = dataSnapshot.child("missedMedication").getValue(Boolean.class);
+                sendAlerts = dataSnapshot.child("sendAlerts").getValue(Boolean.class);
+                timeUntilAlert = dataSnapshot.child("timeBeforeAlert").getValue(Float.class);
+                alarm = dataSnapshot.child("alarm").getValue(Boolean.class);
+                alarmVolume = dataSnapshot.child("alarmVolume").getValue(Float.class);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.e("DeviceState", "Failed to fetch device settings: " + databaseError.getMessage());
+            }
+        });
     }
 
     public String getDeviceID(){
@@ -30,14 +63,55 @@ public class Device {
         return this.deviceNickname;
     }
 
-    /////// getters ///////
-    public int getSoundVolume() {return soundVolume;}
-    public boolean isSoundOn() {return soundOn;}
-    public boolean isLightsOn() {return lightsOn;}
+    public boolean getMedicationTaken(){
+        return medicationTaken;
+    }
 
+    public boolean isAlertLights() {
+        return alertLights;
+    }
 
-    /////// setters /////////
-    public void setLightsOn(boolean lightsOn) {this.lightsOn = lightsOn;}
-    public void setSoundOn(boolean soundOn) {this.soundOn = soundOn;}
-    public void setSoundVolume(int soundVolume) {this.soundVolume = soundVolume;}
+    public boolean isMissedMedication() {
+        return missedMedication;
+    }
+
+    public boolean isSendAlerts() {
+        return sendAlerts;
+    }
+
+    public float getTimeUntilAlert() {
+        return timeUntilAlert;
+    }
+
+    public float getAlarmVolume() {
+        return alarmVolume;
+    }
+
+    public boolean isAlarm() {
+        return alarm;
+    }
+
+    public void setAlertLights(boolean alertLights) {
+        this.alertLights = alertLights;
+    }
+
+    public void setMissedMedication(boolean missedMedication) {
+        this.missedMedication = missedMedication;
+    }
+
+    public void setSendAlerts(boolean sendAlerts) {
+        this.sendAlerts = sendAlerts;
+    }
+
+    public void setTimeUntilAlert(float timeUntilAlert) {
+        this.timeUntilAlert = timeUntilAlert;
+    }
+
+    public void setAlarmVolume(float alarmVolume) {
+        this.alarmVolume = alarmVolume;
+    }
+
+    public void setAlarm(Boolean alarm) {
+        this.alarm = alarm;
+    }
 }

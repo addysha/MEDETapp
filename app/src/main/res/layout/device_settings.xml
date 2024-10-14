@@ -51,8 +51,10 @@
             android:id="@+id/alarm_sound_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:scaleX="1.5"
-            android:scaleY="1.5"/>
+            android:scaleY="1.5"
+            android:layout_marginEnd="10dp"/>
     </LinearLayout>
 
     <!-- Alarm Volume Layout -->
@@ -76,6 +78,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:value="50.0"
             android:stepSize="1.0"
             android:valueFrom="0.0"
             android:valueTo="100.0" />
@@ -102,8 +105,10 @@
             android:id="@+id/alert_lights_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:scaleX="1.5"
-            android:scaleY="1.5"/>
+            android:scaleY="1.5"
+            android:layout_marginEnd="10dp"/>
     </LinearLayout>
 
     <!-- Send Alerts Layout -->
@@ -122,13 +127,41 @@
             android:text="Send Alerts"
             android:textSize="35sp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+
+            <!-- Alarm Volume Label -->
+            <TextView
+                android:id="@+id/time_before_alert_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Time before alert (Minutes)"
+                android:textSize="35sp" />
+
+            <!-- Alarm Volume Slider -->
+            <com.google.android.material.slider.Slider
+                android:id="@+id/time_before_alert_slider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:value="30.0"
+                android:stepSize="1.0"
+                android:valueFrom="1.0"
+                android:valueTo="120" />
+        </LinearLayout>
+
         <!-- Send Alerts Switch -->
         <Switch
             android:id="@+id/send_alerts_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:scaleX="1.5"
-            android:scaleY="1.5"/>
+            android:scaleY="1.5"
+            android:layout_marginEnd="10dp"/>
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout

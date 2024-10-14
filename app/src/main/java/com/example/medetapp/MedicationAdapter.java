@@ -27,9 +27,6 @@ public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.Me
         this.medicationList = medicationList;
         this.context = context;
         this.activity = activity;
-
-        // Log the size of the medication list
-        Log.d("MedicationAdapter", "List size: " + medicationList.size());
     }
 
     @NonNull
@@ -49,9 +46,6 @@ public class MedicationAdapter extends RecyclerView.Adapter<MedicationAdapter.Me
             holder.medicationName.setText(medication.getName());
             holder.medicationInfo.setText(medication.getInformation());
             holder.medicationTime.setText(medication.getTime());
-
-            // Log the medication details
-            Log.d("MedicationAdapter", "Binding medication: " + medication.getName());
 
             // Make item clickable
             holder.itemView.setOnClickListener(v -> {
