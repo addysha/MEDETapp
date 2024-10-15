@@ -106,9 +106,11 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        Medication nextMedication = getNextMedication(medications);
-        long timeLeftInMillis = calculateTimeUntilMedication(nextMedication);
 
+
+        long timeLeftInMillis = getNextMedicationTime(medications);
+
+        Log.d("please", String.valueOf(timeLeftInMillis));
         // Start the countdown timer
         startCountdown(timeLeftInMillis);
 
@@ -199,11 +201,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFinish() {
 
-                //calculate time till next medication and start the timer
-                Medication nextMedication = getNextMedication(medications);
-                long timeLeftInMillis = calculateTimeUntilMedication(nextMedication);
+            setCountdown();
 
-                startCountdown(timeLeftInMillis);
+
 
 
             }
@@ -211,37 +211,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // Helper method to calculate time until the next medication
-    private long calculateTimeUntilMedication(Medication medication) {
-        // Get the current time in milliseconds
-        long currentTimeMillis = System.currentTimeMillis();
 
-        // Parse medication time
-        String[] timeParts = medication.getTime().split(":");
-        int medHour = Integer.parseInt(timeParts[0]);
-        int medMinute = Integer.parseInt(timeParts[1]);
-
-        // Get the current date
-        Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, medHour);
-        calendar.set(Calendar.MINUTE, medMinute);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
-
-        long medicationTimeMillis = calendar.getTimeInMillis();
-
-        // Calculate the time until the next medication in milliseconds
-        long timeDifference = medicationTimeMillis - currentTimeMillis;
-
-        return timeDifference >= 0 ? timeDifference : 0; // Return 0 if negative
-    }
 
     //Returns a medication object and the time until the medication should be taken for the next medication that should be taken
-    private Medication getNextMedication(ArrayList<Medication> medicationList) {
+    private long getNextMedicationTime(ArrayList<Medication> medicationList) {
         long currentTimeMillis = System.currentTimeMillis();
 
-        Medication nextMedication = null;
         long shortestTimeDifference = Long.MAX_VALUE;
+
 
         // Loop through medication list finding the next time for medication
         for (Medication medication : medicationList) {
@@ -267,10 +244,15 @@ public class MainActivity extends AppCompatActivity {
 
             if (timeDifference >= 0 && timeDifference < shortestTimeDifference) {
                 shortestTimeDifference = timeDifference;
-                nextMedication = medication;
             }
         }
-        return nextMedication;
+
+        // if only other medication time is currently then want to set for 24 hours
+        if (shortestTimeDifference==0){
+            return 24 * 60 * 60 * 1000;
+        }
+
+        return shortestTimeDifference;
     }
 
 
