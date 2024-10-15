@@ -11,6 +11,7 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Device {
     private final String deviceNickname;
@@ -40,12 +41,12 @@ public class Device {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                alertLights = dataSnapshot.child("alertLights").getValue(Boolean.class);
-                missedMedication = dataSnapshot.child("missedMedication").getValue(Boolean.class);
-                sendAlerts = dataSnapshot.child("sendAlerts").getValue(Boolean.class);
-                timeUntilAlert = dataSnapshot.child("timeBeforeAlert").getValue(Float.class);
-                alarm = dataSnapshot.child("alarm").getValue(Boolean.class);
-                alarmVolume = dataSnapshot.child("alarmVolume").getValue(Float.class);
+                alertLights = Optional.ofNullable(dataSnapshot.child("alertLights").getValue(Boolean.class)).orElse(true);
+                missedMedication = Optional.ofNullable(dataSnapshot.child("missedMedication").getValue(Boolean.class)).orElse(false);
+                sendAlerts = Optional.ofNullable(dataSnapshot.child("sendAlerts").getValue(Boolean.class)).orElse(true);
+                timeUntilAlert = Optional.ofNullable(dataSnapshot.child("timeBeforeAlert").getValue(Float.class)).orElse(30.0f);
+                alarm = Optional.ofNullable(dataSnapshot.child("alarm").getValue(Boolean.class)).orElse(true);
+                alarmVolume = Optional.ofNullable(dataSnapshot.child("alarmVolume").getValue(Float.class)).orElse(0.5f);
             }
 
             @Override
