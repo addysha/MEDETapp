@@ -120,7 +120,7 @@
         <!-- Alarm Sound Label -->
         <TextView
             android:id="@+id/send_alerts_label"
-            android:layout_width="0"
+            android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:text="Send Alerts"
