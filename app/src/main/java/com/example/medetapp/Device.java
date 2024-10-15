@@ -46,7 +46,7 @@ public class Device {
                 sendAlerts = Optional.ofNullable(dataSnapshot.child("sendAlerts").getValue(Boolean.class)).orElse(true);
                 timeUntilAlert = Optional.ofNullable(dataSnapshot.child("timeBeforeAlert").getValue(Float.class)).orElse(30.0f);
                 alarm = Optional.ofNullable(dataSnapshot.child("alarm").getValue(Boolean.class)).orElse(true);
-                alarmVolume = Optional.ofNullable(dataSnapshot.child("alarmVolume").getValue(Float.class)).orElse(0.5f);
+                alarmVolume = Optional.ofNullable(dataSnapshot.child("alarmVolume").getValue(Float.class)).orElse(50f);
             }
 
             @Override

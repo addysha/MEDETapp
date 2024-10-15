@@ -111,21 +111,38 @@
             android:layout_marginEnd="10dp"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <!-- Alarm Sound Label -->
+        <TextView
+            android:id="@+id/send_alerts_label"
+            android:layout_width="0"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:text="Send Alerts"
+            android:textSize="35sp" />
+
+        <!-- Send Alerts Switch -->
+        <Switch
+            android:id="@+id/send_alerts_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:scaleX="1.5"
+            android:scaleY="1.5"
+            android:layout_marginEnd="10dp"/>
+    </LinearLayout>
+
     <!-- Send Alerts Layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_marginTop="16dp">
-
-        <!-- Send Alerts Label -->
-        <TextView
-            android:id="@+id/send_alerts_label"
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:text="Send Alerts"
-            android:textSize="35sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -152,16 +169,6 @@
                 android:valueFrom="1.0"
                 android:valueTo="120" />
         </LinearLayout>
-
-        <!-- Send Alerts Switch -->
-        <Switch
-            android:id="@+id/send_alerts_switch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:scaleX="1.5"
-            android:scaleY="1.5"
-            android:layout_marginEnd="10dp"/>
     </LinearLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
