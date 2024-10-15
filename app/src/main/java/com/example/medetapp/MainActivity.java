@@ -65,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //Method to create and push the notification to the user
     private void sendLocalNotification(String title, String message) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             NotificationChannel channel = new NotificationChannel(
@@ -79,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Create the notification
         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "device_alerts")
-                .setSmallIcon(R.drawable.logo) // Your notification icon
+                .setSmallIcon(R.drawable.logo)
                 .setContentTitle(title)
                 .setContentText(message)
                 .setPriority(NotificationCompat.PRIORITY_HIGH)
