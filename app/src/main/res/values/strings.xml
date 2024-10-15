@@ -13,7 +13,6 @@
     <string name="profile_settings">Profile Settings</string>
     <string name="user_settings">User Settings</string>
     <string name="main_page_title">Time Until Next Dose</string>
-    <string name="time_till_dose">8:14:54</string>
     <string name="alarm_sound">Alarm Sound</string>
     <string name="alarm_lights">Alarms Lights</string>
     <string name="send_alerts">Send Alerts</string>

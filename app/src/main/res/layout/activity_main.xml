@@ -26,6 +26,7 @@
             android:onClick="onclickBackToDeviceList"/>
 
         <TextView
+
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -56,6 +57,7 @@
         android:textSize="24sp"/>
 
         <TextView
+            android:id="@+id/countdown_text"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="6"
@@ -63,7 +65,6 @@
             android:layout_marginVertical="30dp"
             android:layout_marginHorizontal="20dp"
             android:gravity="center"
-            android:text="@string/time_till_dose"
             android:textSize="70sp"
             />
 
