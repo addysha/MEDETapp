@@ -200,7 +200,6 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish() {
 
                 //calculate time till next medication and start the timer
-                ArrayList<Medication> medications = currentDevice.getMedications();
                 Medication nextMedication = getNextMedication(medications);
                 long timeLeftInMillis = calculateTimeUntilMedication(nextMedication);
 
