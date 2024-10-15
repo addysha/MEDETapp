@@ -1,6 +1,8 @@
 package com.example.medetapp;
 
+
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -23,10 +26,14 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import android.Manifest;
+
 public class DeviceList extends AppCompatActivity implements DeviceAdapter.OnDeviceClickListener{
     private RecyclerView recyclerDevices;
     private DeviceAdapter deviceAdapter;
     private List<Device> deviceList;
+
+    private static final int REQUEST_NOTIFICATION_PERMISSION = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +41,7 @@ public class DeviceList extends AppCompatActivity implements DeviceAdapter.OnDev
         EdgeToEdge.enable(this);
         setContentView(R.layout.device_list);
 
+        checkNotificationPermission();
 
         deviceList = new ArrayList<>();
         recyclerDevices = findViewById(R.id.recycler_devices);
@@ -42,6 +50,27 @@ public class DeviceList extends AppCompatActivity implements DeviceAdapter.OnDev
         //Call for all devices associated with this user from the DB
         fetchUserDevices();
 
+    }
+
+    private void checkNotificationPermission() {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                // Request permission
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.POST_NOTIFICATIONS}, REQUEST_NOTIFICATION_PERMISSION);
+            }
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_NOTIFICATION_PERMISSION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                Log.d("Notifications", "Notification permissions granted");
+            } else {
+                Log.d("Notifications", "Notification permissions denied");
+            }
+        }
     }
 
     private void fetchUserDevices() {
